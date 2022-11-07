@@ -31,14 +31,14 @@ public class ORDSMongoDBAPIContainer extends GenericContainer<ORDSMongoDBAPICont
 	protected String password;
 
 	public ORDSMongoDBAPIContainer(String user, String password) {
-		this(DockerImageName.parse("loiclefevre/ords-ol8:latest"));
+		this(DockerImageName.parse("localhost/loiclefevre/ords-ol8:latest"));
 		this.user = user;
 		this.password = password;
-		this.databaseContainer = new OracleContainer("gvenzl/oracle-xe:21.3.0-slim")
+		this.databaseContainer = new OracleContainer("gvenzl/oracle-xe:21.3.0-slim-faststart")
 				//.withImagePullPolicy(PullPolicy.ageBased(Duration.ofDays(1)))
 				.withReuse(true)
 				.withNetworkAliases("database")
-				.withExposedPorts(1521, MONGODB_PORT) // expose port of other containers in same network namespace
+				.withExposedPorts(1521, MONGODB_PORT, 8080) // expose port of other containers in same network namespace
 				.withEnv("ORACLE_PASSWORD", password)
 				.withEnv("APP_USER", user)
 				.withEnv("APP_USER_PASSWORD", password);
