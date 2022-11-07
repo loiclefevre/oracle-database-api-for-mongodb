@@ -6,3 +6,7 @@ This repository contains a getting started example to deploy 2 Testcontainers:
 
 Both containers are deployed within one Network. This allows for __reusing__ the containers and speed-up second, third... runs.
 
+Run with:
+```
+./mvn test
+```
