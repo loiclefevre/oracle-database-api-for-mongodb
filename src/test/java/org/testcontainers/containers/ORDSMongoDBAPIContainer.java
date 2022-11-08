@@ -31,7 +31,7 @@ public class ORDSMongoDBAPIContainer extends GenericContainer<ORDSMongoDBAPICont
 	protected String password;
 
 	public ORDSMongoDBAPIContainer(String user, String password) {
-		this(DockerImageName.parse("localhost/loiclefevre/ords-ol8:latest"));
+		this(DockerImageName.parse("loiclefevre/ords-ol8:latest"));
 		this.user = user;
 		this.password = password;
 		this.databaseContainer = new OracleContainer("gvenzl/oracle-xe:21.3.0-slim-faststart")
