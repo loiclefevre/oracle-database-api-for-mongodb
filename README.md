@@ -8,5 +8,5 @@ Both containers are deployed within one Network. This allows for __reusing__ the
 
 Run with:
 ```
-./mvn test
+./mvnw test
 ```
